@@ -1,4 +1,4 @@
-@Smoke_test
+@smoke_test
 Feature: Smoke Test
 
   Background: open login page and login as store manager
