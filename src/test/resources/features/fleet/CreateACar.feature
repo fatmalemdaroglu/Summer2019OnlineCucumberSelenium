@@ -1,6 +1,6 @@
 @create_car
 Feature: Create new car
-  Scenario: Verify column names
+  Scenario: Create new car
     Given user is on the login page
     And user logs in as store manager
     Then user navigates to "Fleet" then to "Vehicles"
@@ -8,3 +8,4 @@ Feature: Create new car
     Then user adds new car information:
       | License Plate | Driver      | Location        | Model Year | Color |
       | TestPlates    | Test Driver | Washington D.C. | 2020       | Black |
+      | SomePlates    | Super Driver| Reston, VA      | 2012       | Red   |

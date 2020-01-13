@@ -12,5 +12,3 @@ Feature: All calendar events
       | RECURRENT         |
       | RECURRENCE        |
       | INVITATION STATUS |
-
-
