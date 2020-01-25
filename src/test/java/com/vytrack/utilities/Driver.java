@@ -1,7 +1,6 @@
 package com.vytrack.utilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.apache.xmlbeans.impl.jam.JField;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
@@ -11,6 +10,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -33,7 +33,9 @@ public class Driver {
             switch (browser) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
+                    ChromeOptions chromeOptions2 = new ChromeOptions();
                     driverPool.set(new ChromeDriver());
+                    chromeOptions2.addArguments("startmaximized");
                     break;
                 case "chrome_headless":
                     WebDriverManager.chromedriver().setup();
@@ -72,7 +74,7 @@ public class Driver {
                     try {
                         ChromeOptions chromeOptions = new ChromeOptions();
                         chromeOptions.setCapability("platform", Platform.ANY);
-                        driverPool.set(new RemoteWebDriver(new URL("http://ec2-54-86-54-84.compute-1.amazonaws.com:4444/wd/hub"), chromeOptions));
+                        driverPool.set(new RemoteWebDriver(new URL("http://ec2-3-83-84-96.compute-1.amazonaws.com:4444/wd/hub"), chromeOptions));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -80,8 +82,8 @@ public class Driver {
                 case "remote_firefox":
                     try {
                         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-                        desiredCapabilities.setBrowserName("remote_firefox");
-                        driverPool.set(new RemoteWebDriver(new URL("http://ec2-54-86-54-84.compute-1.amazonaws.com:4444/wd/hub"),desiredCapabilities));
+                        desiredCapabilities.setBrowserName(BrowserType.FIREFOX);
+                        driverPool.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),desiredCapabilities));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

@@ -105,7 +105,7 @@
                             <testFailureIgnore>true</testFailureIgnore>
                         </configuration>
                     </plugin>
-<!--                    When we want to run regression suit local but we are not gonna run local we will run in jenkins-->
+<!--                    When we want to run regression suit local. but when we are not gonna run local we will run in jenkins-->
 <!--                    <plugin>-->
 <!--                    <groupId>net.masterthought</groupId>-->
 <!--                    <artifactId>maven-cucumber-reporting</artifactId>-->
